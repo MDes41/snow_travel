@@ -33,6 +33,8 @@ gem "omniauth-google-oauth2"
 gem "figaro"
 gem "factory_girl_rails"
 gem "faker"
+gem 'bootstrap-sass'
+gem 'sass-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
