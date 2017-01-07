@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Snow Travel</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Best Mountain <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Closest Mountain</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mountains<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">All Mountains</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Aspen</a></li>
+            <li><a href="#">Banff</a></li>
+            <li><a href="#">Jackson Hole</a></li>
+            <li><a href="#">Mammoth</a></li>
+            <li><a href="#">Park City</a></li>
+            <li><a href="#">Silverton</a></li>
+            <li><a href="#">Snowmass</a></li>
+            <li><a href="#">Steamboat</a></li>
+            <li><a href="#">Telluride</a></li>
+            <li><a href="#">Whistler</a></li>
+            <li><a href="#">Vail</a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><a href="#">Logged in as</a></li>
+          <li><a href="#"><%= current_user.name %></a></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login with Google", google_login_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
