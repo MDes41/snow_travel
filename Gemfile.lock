@@ -65,6 +65,9 @@ GEM
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    elasticsearch-transport (5.0.0)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
@@ -220,8 +223,10 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
+  elasticsearch-transport
   factory_girl_rails
   faker
+  faraday
   figaro
   jbuilder (~> 2.5)
   jquery-rails
