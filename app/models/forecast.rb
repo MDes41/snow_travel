@@ -4,7 +4,7 @@ class Forecast
 
 	def initialize(raw_data)
 
-		@day = raw_data[:dt]
+		@day = convert_time(raw_data[:dt])
 		@temp = create_temps(raw_data[:temp])
 		@pressure = raw_data[:pressure]
 		@humidity = raw_data[:humidity]
@@ -32,5 +32,10 @@ class Forecast
 
 	def wind_sym(dir)
 		Direction.new.cardinal_direction(dir)
+	end
+
+	def convert_time(time)
+		t = Time.at(time)
+		t.strftime("%A, %b %d %Y")
 	end
 end
