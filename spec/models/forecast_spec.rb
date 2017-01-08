@@ -12,7 +12,8 @@ describe 'Forcast' do
 
 			forecasts.each do |forecast| 
 				expect(forecast).to respond_to(:day)
-				# expect(forecast).to respond_to(:temp)
+				expect(forecast).to respond_to(:temp)
+				expect(forecast.temp).to respond_to(:day_temp)
 				expect(forecast).to respond_to(:pressure)
 				expect(forecast).to respond_to(:humidity)
 				# expect(forecast).to respond_to(:weather)

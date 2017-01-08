@@ -31,7 +31,7 @@ class Forecast
 	def initialize(raw_data)
 
 		@day = raw_data[:dt]
-		# @temp = create_temps(raw_data[:temp])
+		@temp = create_temps(raw_data[:temp])
 		@pressure = raw_data[:pressure]
 		@humidity = raw_data[:humidity]
 		# @weather = create_weather(raw_data[:weather].first)
@@ -48,9 +48,9 @@ class Forecast
 		end
 	end
 
-	# def create_temps(raw_temps)
-	# 	Temp.new(raw_temps)
-	# end
+	def create_temps(raw_temps)
+		Temp.new(raw_temps)
+	end
 
 	# def create_weather(raw_weather)
 	# 	Weather.new(raw_weather)
