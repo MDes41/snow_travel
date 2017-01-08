@@ -10,7 +10,7 @@ class Temp
 		@morn_temp = temp[:morn]
 	end
 
-	def convert_kelvin_to_fahrenheit(kelvin)
-		(kelvin * 9.0 / 5.0 - 459.67).round(2)
-	end
+	# def convert_kelvin_to_fahrenheit(kelvin)
+	# 	(kelvin * 9.0 / 5.0 - 459.67).round(2)
+	# end
 end
