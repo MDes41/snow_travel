@@ -50,5 +50,5 @@ describe 'Temp' do
 	# 		expect(evening_temp).to eq(440.33)
 	# 		expect(morn_temp).to eq(620.33)
 	# 	end
-	# end
+	end
 end

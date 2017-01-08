@@ -29,4 +29,7 @@ class Forecast
 	def create_weather(raw_weather)
 		Weather.new(raw_weather)
 	end
+
+
+	
 end
