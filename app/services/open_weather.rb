@@ -5,13 +5,12 @@ class OpenWeather
 		@api_key = ENV['OPEN_WEATHER_API']
 		@days_out = '16'
 		@request = Faraday.new('http://api.openweathermap.org')
-		@response ||= mountain_info_response(mountain)
 	end
 	
 	def self.get_mountain_info(mountain)
 		new(mountain).mountain_info_response(mountain)
 	end
-	
+
 	def mountain_info_response(mountain)
 		@request.get do |req|
 			req.url '/data/2.5/forecast/daily'
