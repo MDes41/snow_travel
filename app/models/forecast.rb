@@ -30,6 +30,7 @@ class Forecast
 		Weather.new(raw_weather)
 	end
 
-
-	
+	def wind_sym(dir)
+		Direction.new.cardinal_direction(dir)
+	end
 end
