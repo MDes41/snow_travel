@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Temp</th>
+      <th>Pressure</th>
+      <th>Humidity</th>
+      <th>Weather</th>
+      <th>Speed</th>
+      <th>Wind Direction</th>
+      <th>Clouds</th>
+      <th>Snow</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+        <th scope="row"><%= forecast.day %></th>
+        <td><button id='temp-details' class="btn btn-info btn-xs">Show/Hide</button><%= forecast.temp %></td>
+        <td><%= forecast.pressure %></td>
+        <td><%= forecast.humidity %></td>
+        <td><%= image_tag "http://openweathermap.org/img/w/#{forecast.weather.icon}.png" %></td>
+        <td><%= forecast.speed %></td>
+        <td><%= forecast.wind_dir %></td>
+        <td><%= forecast.clouds %></td>
+        <td><%= forecast.snow %></td>
+      </tr>
+
+  </tbody>
+</table>

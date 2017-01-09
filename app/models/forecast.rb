@@ -10,7 +10,7 @@ class Forecast
 		@humidity = raw_data[:humidity]
 		@weather = create_weather(raw_data[:weather].first)
 		@speed = raw_data[:speed]
-		@wind_dir = raw_data[:deg]
+		@wind_dir = wind_sym(raw_data[:deg])
 		@clouds = raw_data[:clouds]
 		@snow = raw_data[:snow] == nil ? 0 : raw_data[:snow]
 	end

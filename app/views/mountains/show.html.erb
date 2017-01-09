@@ -3,36 +3,24 @@
   <h1><%= @mountain.city %>  <small> <%= @mountain.state %>, <%= @mountain.country %> </small></h1>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Day</th>
-      <th>Temp</th>
-      <th>Pressure</th>
-      <th>Humidity</th>
-      <th>Weather</th>
-      <th>Speed</th>
-      <th>Wind Direction</th>
-      <th>Clouds</th>
-      <th>Snow</th>
-    </tr>
-  </thead>
-  <tbody>
-
   	<% @forecasts.each do |forecast| %>
-    <tr>
-      <th scope="row"><%= forecast.day %></th>
-      <td><%= forecast.temp %></td>
-      <td><%= forecast.pressure %></td>
-      <td><%= forecast.humidity %></td>
-      <td><%= forecast.weather %></td>
-      <td><%= forecast.speed %></td>
-      <td><%= forecast.wind_dir %></td>
-      <td><%= forecast.clouds %></td>
-      <td><%= forecast.snow %></td>
-    </tr>
+  	  
 
+  	  <div class="panel panel-info"> 
+	        <div class="panel-heading clickable">
+	            <h3 class="panel-title"><%= forecast.day %>
+	            <span class='float-right'><%= image_tag "http://openweathermap.org/img/w/#{forecast.weather.icon}.png" %><i class="glyphicon glyphicon-minus"></i></span></h3>
+	        </div>
+	        <div class="panel-body">
+	        	<div class='container-fluid'>
+		        	<%= render partial: 'mountains/full_weather', locals: {forecast:forecast} %>
+		        	<div class='temp-details-table'>
+			        	<%= render partial: 'mountains/detail_weather', locals: {forecast:forecast} %>
+			        </div>
+		        </div>
+	        </div>
+	    </div>
     <% end %>
-    
+
   </tbody>
 </table>
