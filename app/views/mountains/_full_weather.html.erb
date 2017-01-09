@@ -16,7 +16,7 @@
 
       <tr>
         <th scope="row"><%= forecast.day %></th>
-        <td><button id='temp-details' class="btn btn-info btn-xs">Show/Hide</button><%= forecast.temp %></td>
+        <td><%= forecast.temp.day_temp %> <button class="temp-details btn btn-info btn-xs">Details</button></td>
         <td><%= forecast.pressure %></td>
         <td><%= forecast.humidity %></td>
         <td><%= image_tag "http://openweathermap.org/img/w/#{forecast.weather.icon}.png" %></td>
@@ -28,3 +28,7 @@
 
   </tbody>
 </table>
+
+<div class='temp-details-table'>
+  <%= render partial: 'mountains/detail_weather', locals: {forecast: forecast} %>
+</div>

@@ -24,13 +24,13 @@ $(document).on('click', '.panel div.clickable', function (e) {
 });
 
 
-$(document).ready(function(){
-    $("#temp-details").click(function(){
-        $(".temp-details-table").toggle();
-    });
+$(document).on('click', '.temp-details', function (e) {
+    var $this = $(this);
+    $this.parents(".panel").find(".temp-details-table").toggle();
 });
 
 $(document).ready(function(){
 	$('.panel-heading span.clickable').click();
 	$('.panel div.clickable').click();
+    $('.temp-details').click();
 });
