@@ -4,6 +4,7 @@ class OpenWeather
 	def initialize(mountain)
 		@api_key = ENV['OPEN_WEATHER_API']
 		@days_out = '16'
+		@units = 'Imperial'
 		@request = Faraday.new('http://api.openweathermap.org')
 	end
 	
@@ -17,6 +18,7 @@ class OpenWeather
 			req.params = { lat: mountain.lat, lon: mountain.lon} 
 			req.params[:appid] = @api_key
 			req.params[:cnt] = @days_out
+			req.params[:units] = @units
 		end
 	end
 end

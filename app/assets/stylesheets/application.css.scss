@@ -14,3 +14,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.float-right {
+	float: right;
+}
+
+.panel-heading {
+	min-height: 105px;
+}
+
+.panel.temp-details-table {
+	display: none;
+}
+
