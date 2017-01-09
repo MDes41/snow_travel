@@ -6,8 +6,7 @@
 
 
   	<% @forecasts.each do |forecast| %>
-
-  	  <div class="col-md-2 panel panel-info"> 
+  	  <div class="panel panel-info"> 
 	        <div class="panel-heading clickable">
 	            <h3 class="panel-title"><%= forecast.day %>
 	            <span class='float-right'><%= image_tag "http://openweathermap.org/img/w/#{forecast.weather.icon}.png" %><i class="glyphicon glyphicon-minus"></i></span></h3>
@@ -18,7 +17,6 @@
 		        </div>
 	        </div>
 	    </div>
-
     <% end %>
 
   </tbody>
