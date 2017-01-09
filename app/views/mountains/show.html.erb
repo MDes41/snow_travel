@@ -1,0 +1,32 @@
+
+<div class="page-header">
+  <h1><%= @mountain.city %>  <small> <%= @mountain.state %>, <%= @mountain.country %> </small></h1>
+</div>
+
+
+
+  	<% @forecasts.each do |forecast| %>
+  	<div class='days'>
+  	  <div class="panel panel-info"> 
+	        <div class="panel-heading clickable">
+	        	<div class='col-md-12 text-center'>
+	            <h3 class="panel-title"><%= forecast.day %></h3>
+	          </div>
+	          <div class='col-md-8'>
+	          	<h3><small>Snow Index:</small>  <%= forecast.snow %></h3>
+	          </div>
+	          <div class='col-md-4'>
+	            <span class='float-right'><%= image_tag "http://openweathermap.org/img/w/#{forecast.weather.icon}.png" %><i class="glyphicon glyphicon-minus"></i></span>
+	          </div>
+	        </div>
+	        <div class="panel-body">
+	        	<div class='container-fluid'>
+		        	<%= render partial: 'mountains/full_weather', locals: {forecast:forecast} %>
+		        </div>
+	        </div>
+	    </div>
+	  </div>
+    <% end %>
+
+  </tbody>
+</table>
