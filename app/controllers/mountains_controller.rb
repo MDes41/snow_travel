@@ -1,5 +1,9 @@
 class MountainsController < ApplicationController
 
+	def index
+		@forecasts = Mountain.all_forecasts
+	end
+
 	def show
 		@mountain = Mountain.find(params[:id])
 		@forecasts = Forecast.get_forecasts(@mountain)

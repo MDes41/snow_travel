@@ -3,7 +3,6 @@ class Forecast
 	attr_reader  :day, :pressure, :humidity, :speed, :wind_dir, :clouds, :snow, :weather, :temp
 
 	def initialize(raw_data)
-
 		@day = convert_time(raw_data[:dt])
 		@temp = create_temps(raw_data[:temp])
 		@pressure = raw_data[:pressure]

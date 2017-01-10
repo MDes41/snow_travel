@@ -31,7 +31,7 @@ class WeatherUnderground
 		"http://api.wunderground.com/" + "#{response.env.url.path}" + "?" + "#{response.env.url.query}"
 	end
 
-	def weather_underground_response(mountain, request)
+	def weather_underground_response(mountain, request = {})
 		url = get_url(mountain, request)
 		params = get_params(request)
 		@request.get do |req|
@@ -48,7 +48,7 @@ class WeatherUnderground
 
 	def get_params(request)
 		if request[:feature] == 'satellite' || request[:feature] == 'radar'
-			{ 'radius' => '300', smooth: 1, 'num' => '8', 'timelabel' => '1', 'timelabel.y' => 15, 'width' => 400, 'height' => 400}
+			{ 'radius' => '300', noclutter: 1, rainsnow: 1, newmaps: 1, smooth: 1, 'num' => '8', 'timelabel' => '1', 'timelabel.y' => 15, 'width' => 400, 'height' => 400}
 		else
 			{}
 		end
