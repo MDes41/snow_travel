@@ -1,27 +1,37 @@
 <h1>Mountains in Colorado</h1>
 
-<% @forecasts.each_with_index do |(mountain, forecast)| %>
+<button class='show-snow'>Show Snow</button>
+<button class='show-weather'>Show Weather</button>
+<button class='show-temperature'>Show Temperature</button>
+<button class='show-wind'>Show Wind</button>
+<button class='show-all'>Show all</button>
+
 	<table class="table table-bordered week1">
+		<caption class='snow'>Snow Totals</caption>
+		<caption class='weather'>Weather Totals</caption>
+		<caption class='temperature'>Temperature Totals</caption>
+		<caption class='wind'>Wind Totals</caption>
+		<caption class='all'>All Mountains</caption>
+<% @forecasts.each_with_index do |(mountain, forecast), index| %>
 	  <thead>
 	    <tr>
-	      <th><%= mountain %> week 1</th>
-	      <th>1</th>
-	      <th>2</th>
-	      <th>3</th>
-	      <th>4</th>
-	      <th>5</th>
-	      <th>6</th>
-	      <th>7</th>
-	      <th>8</th>
+	    	<% if index < 1 %>
+	      <th> Week 1</th>
+	      <% forecast.each_with_index do |day, index| %>
+	      	<% if index < 8 %>
+	      	<th><%= day.day %></td>
+	      	<% end %>
+	      <% end %>
 	      <th>High</th>
 	      <th>Low</th>
 	      <th>Total</th>
 	      <th>Average</th>
 	    </tr>
 	  </thead>
+	  <% end %>
 	  <tbody>
-	    <tr>
-	      <th>Weather</th>
+	    <tr class='weather'>
+	      <th><%= mountain %>: Weather</th>
 	      <% forecast.each_with_index do |day, index| %>
 	      	<% if index < 8 %>
 	      	<td><%= image_tag "http://openweathermap.org/img/w/#{day.weather.icon}.png" %></td>
@@ -32,8 +42,8 @@
 	      <td>Total</td>
 	      <td>Average</td>
 	    </tr>
-	    <tr>
-	      <th>Temperature</th>
+	    <tr class='temperature'>
+	      <th><%= mountain %>: Temperature</th>
 	      <% forecast.each_with_index do |day, index| %>
 	      <% if index < 8 %>
 	      	<td><p>Day: <%= day.temp.day_temp %>F˚</p><p>Night: <%= day.temp.night_temp %>F˚</p></td>
@@ -44,8 +54,8 @@
 	      <td>Total</td>
 	      <td>Average</td>
 	    </tr>
-	    <tr>
-	      <th>Wind</th>
+	    <tr class='wind'>
+	      <th><%= mountain %>: Wind</th>
 	      <% forecast.each_with_index do |day, index| %>
 	      <% if index < 8 %>
 	      	<td><%= day.speed %> mi/h - <%= day.wind_dir %></td>
@@ -56,8 +66,8 @@
 	      <td>Total</td>
 	      <td>Average</td>
 	    </tr>
-	    <tr>
-	      <th>Snow</th>
+	    <tr class='snow'>
+	      <th><%= mountain %>: Snow</th>
 	      <% forecast.each_with_index do |day, index| %>
 	      <% if index < 8 %>
 	      	<td><%= day.snow %> %</td>
@@ -69,45 +79,50 @@
 	      <td>Average</td>
 	    </tr>
 	  </tbody>
-	</table>
 <% end %>
+	</table>
 
-<% @forecasts.each_with_index do |(mountain, forecast)| %>
-	<table class="table table-bordered week2">
+
+<table class="table table-bordered week2">
+		<caption class='snow'>Snow Totals</caption>
+		<caption class='weather'>Weather Totals</caption>
+		<caption class='temperature'>Temperature Totals</caption>
+		<caption class='wind'>Wind Totals</caption>
+		<caption class='all'>All Mountains</caption>
+<% @forecasts.each_with_index do |(mountain, forecast), index| %>
 	  <thead>
 	    <tr>
-	      <th><%= mountain %> week 2</th>
-	      <th>9</th>
-	      <th>10</th>
-	      <th>11</th>
-	      <th>12</th>
-	      <th>13</th>
-	      <th>14</th>
-	      <th>15</th>
-	      <th>16</th>
+	    	<% if index < 1 %>
+	      <th> Week 2</th>
+	      <% forecast.each_with_index do |day, index| %>
+	      	<% if index >= 8 %>
+	      	<th><%= day.day %></td>
+	      	<% end %>
+	      <% end %>
 	      <th>High</th>
 	      <th>Low</th>
 	      <th>Total</th>
 	      <th>Average</th>
 	    </tr>
 	  </thead>
+	  <% end %>
 	  <tbody>
-	    <tr>
-	      <th>Weather</th>
+	    <tr class='weather'>
+	      <th><%= mountain %>: Weather</th>
 	      <% forecast.each_with_index do |day, index| %>
-	      <% if index > 8 %>
+	      	<% if index >= 8 %>
 	      	<td><%= image_tag "http://openweathermap.org/img/w/#{day.weather.icon}.png" %></td>
-	      <% end %>
+	      	<% end %>
 	      <% end %>
 	      <td>High</td>
 	      <td>Low</td>
 	      <td>Total</td>
 	      <td>Average</td>
 	    </tr>
-	    <tr>
-	      <th>Temperature</th>
+	    <tr class='temperature'>
+	      <th><%= mountain %>: Temperature</th>
 	      <% forecast.each_with_index do |day, index| %>
-	      <% if index > 8 %>
+	      <% if index >= 8 %>
 	      	<td><p>Day: <%= day.temp.day_temp %>F˚</p><p>Night: <%= day.temp.night_temp %>F˚</p></td>
 	      <% end %>
 	      <% end %>
@@ -116,10 +131,10 @@
 	      <td>Total</td>
 	      <td>Average</td>
 	    </tr>
-	    <tr>
-	      <th>Wind</th>
+	    <tr class='wind'>
+	      <th><%= mountain %>: Wind</th>
 	      <% forecast.each_with_index do |day, index| %>
-	      <% if index > 8 %>
+	      <% if index >= 8 %>
 	      	<td><%= day.speed %> mi/h - <%= day.wind_dir %></td>
 	      <% end %>
 	      <% end %>
@@ -128,10 +143,10 @@
 	      <td>Total</td>
 	      <td>Average</td>
 	    </tr>
-	    <tr>
-	      <th>Snow</th>
+	    <tr class='snow'>
+	      <th><%= mountain %>: Snow</th>
 	      <% forecast.each_with_index do |day, index| %>
-	      <% if index > 8 %>
+	      <% if index >= 8 %>
 	      	<td><%= day.snow %> %</td>
 	      <% end %>
 	      <% end %>
@@ -141,16 +156,15 @@
 	      <td>Average</td>
 	    </tr>
 	  </tbody>
-	</table>
 <% end %>
-
+	</table>
 
 
 	<table class="table table-bordered total both-weeks">
 <% @forecasts.each_with_index do |(mountain, forecast)| %>
 	  <thead>
 	    <tr>
-	      <th><%= mountain %> 2 Weeks</th>
+	      <th><%= mountain %></th>
 	      <th class='center-text'>Week One</th>
 	      <th class='center-text'>Week Two</th>
 	      <th clsss='center-text'>Total</th>
