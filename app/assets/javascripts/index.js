@@ -42,7 +42,7 @@ $(document).on('click', '.temp-details', function (e) {
 //     $('tbody tr:has(th.'+snow+')').show();
 // });
 
-$(document).ready(function(){
+$(document).ready(function(ready){
 	$('.panel-heading span.clickable').click();
 	$('.panel div.clickable').click();
     $('.temp-details').click();
@@ -110,3 +110,4 @@ function monthSorter(a, b) {
 //     $('tbody tr:has(a.'+weather+')').show();
 //     };
 });
+$(document).on('page:load', ready);

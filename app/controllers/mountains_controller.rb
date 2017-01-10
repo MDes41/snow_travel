@@ -1,6 +1,7 @@
 class MountainsController < ApplicationController
 
 	def index
+		@category = params[:category]
 		@forecasts = Mountain.all_forecasts
 	end
 
