@@ -1,6 +1,5 @@
 class OpenWeather
-		attr_reader :response
-
+	
 	def initialize(mountain)
 		@api_key = ENV['OPEN_WEATHER_API']
 		@days_out = '16'

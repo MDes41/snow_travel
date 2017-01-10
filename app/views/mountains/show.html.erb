@@ -2,6 +2,10 @@
 <div class="page-header">
   <h1><%= @mountain.city %>  <small> <%= @mountain.state %>, <%= @mountain.country %> </small></h1>
 </div>
+<div class="page-header">
+  <h1><small> Forecast</small></h1>
+</div>
+
 
 
 
@@ -27,6 +31,22 @@
 	    </div>
 	  </div>
     <% end %>
+    <div class="row"></div>
+		<div class="page-header">
+			<h1><small>Current Conditions</small></h1>
+		</div>
+
+    <div class='col-md-6'>
+    	<div class='satellite'>
+    	<%= image_tag "#{@satellite_path}", class: 'img-responsive center-block' %> 
+    	</div>
+    </div>
+
+    <div class='col-md-6'>
+    	<div class='radar'>
+    	<%= image_tag "#{@radar_path}", class: 'img-responsive center-block' %>
+    	</div>
+    </div>
 
   </tbody>
 </table>
