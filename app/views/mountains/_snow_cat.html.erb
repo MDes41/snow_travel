@@ -3,10 +3,10 @@
 	  <thead>
 	    <tr>
 	      <%= render partial: 'mountains/day_category', locals: { forecasts: forecasts} %>
-	      <th data-field="h" data-sortable="true">High</th>
-	      <th data-field="l" data-sortable="true">Low</th>
-	      <th data-field="t" data-sortable="true">Total</th>
-	      <th data-field="a" data-sortable="true">Average</th>
+	      <th data-field="high" data-sortable="true">High</th>
+	      <th data-field="low" data-sortable="true">Low</th>
+	      <th data-field="total" data-sortable="true">Total</th>
+	      <th data-field="average" data-sortable="true">Average</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -16,10 +16,10 @@
 		      <% forecast.each_with_index do |day, index| %>
 		      	<td class=<%= 'day' + index.to_s %>><%= day.snow %> mm <%= index %> </td>
 		      <% end %>
-		      <td>High</td>
-		      <td>Low</td>
-		      <td>Total</td>
-		      <td>Average</td>
+		      <td><%= Total.max_snow(forecast) %> mm</td>
+		      <td><%= Total.min_snow(forecast) %> mm</td>
+		      <td><%= Total.total_snow(forecast) %> mm</td>
+		      <td><%= Total.average_snow(forecast) %> mm</td>
 		    </tr>
 			<% end %>
 	  </tbody>
