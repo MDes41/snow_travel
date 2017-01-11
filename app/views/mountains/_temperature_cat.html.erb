@@ -2,24 +2,22 @@
 	<caption class='temperature'>Temperature Totals (F˚)</caption>
 	  <thead>
 	    <tr>
-	      <%= render partial: 'mountains/day_category', locals: { forecasts: forecasts} %>
-	      <th data-field="h" data-sortable="true">High</th>
-	      <th data-field="l" data-sortable="true">Low</th>
-	      <th data-field="t" data-sortable="true">Total</th>
-	      <th data-field="a" data-sortable="true">Average</th>
+	      <%= render partial: 'mountains/day_category', locals: { forecasts: forecasts, category: "Temperature"} %>
+	      <th data-field="temp-high" data-sortable="true">High</th>
+	      <th data-field="temp-low" data-sortable="true">Low</th>
+	      <th data-field="temp-avg" data-sortable="true">Average</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='temperature'>
-		      <td><%= mountain %>: Temperature</td>
+		      <td><%= mountain %></td>
 		      <% forecast.each_with_index do |day, index| %>
-		      	<td><p><%= day.temp.day_temp %> F˚ <%= index %></p></td>
+		      	<td><p><%= day.temp.day_temp %><small> F˚</small><%= index %></p></td>
 	      	<% end %>
-		      <td>High</td>
-		      <td>Low</td>
-		      <td>Total</td>
-		      <td>Average</td>
+		      <td><%= Total.temp_high(forecast) %> F˚</td>
+		      <td><%= Total.temp_low(forecast) %> F˚</td>
+		      <td><%= Total.temp_avg(forecast) %> F˚</td>
 		  	</tr>
 			<% end %>
 	  </tbody>
