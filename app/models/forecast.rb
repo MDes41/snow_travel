@@ -37,4 +37,8 @@ class Forecast
 		t = Time.at(time)
 		t.strftime("%A, %b %d %Y")
 	end
+
+	def total_snow
+		
+	end
 end

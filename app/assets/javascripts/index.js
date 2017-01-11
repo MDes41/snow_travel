@@ -37,8 +37,20 @@ $(document).on('click', '.temp-details', function (e) {
     $this.parents(".panel").find(".temp-details-table").toggle();
 });
 
-$(document).ready(function(){
+
+$(document).ready(function(ready){
 	$('.panel-heading span.clickable').click();
 	$('.panel div.clickable').click();
     $('.temp-details').click();
+    $('.fixed-table-loading').hide();
+    $('[data-toggle="table"]').bootstrapTable();
+ 
+    $('input[type="checkbox"]').click(function() {
+        var index = $(this).attr('name');
+        $('th.' + $(this).attr('name')).toggle();
+        $('#test').attr('data-visible', false);
+        $('td.' + $(this).attr('name')).toggle();
+    });
 });
+
+$(document).on('page:load', ready);
