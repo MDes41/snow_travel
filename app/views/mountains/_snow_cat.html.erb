@@ -1,11 +1,8 @@
-<table data-toggle='table' class="table table-hover table-bordered week1">
-	<%= render partial: 'mountains/weather_cat' %>
+<table data-toggle='table' data-search='true' data-show-columns='true' class="table table-hover table-bordered week1">
+	<caption class='snow'>Snow Totals (mm/3h)</caption>
 	  <thead>
 	    <tr>
-	      <th data-field="mountain" data-sortable="true">Mountain</th>
-	      <% @forecasts.first.second.each_with_index do |forecast, index| %>
-		      <th data-field=<%= "day" + (index + 1).to_s %> data-sortable="true"><%= forecast.day %></th>
-        <% end %>
+	      <%= render partial: 'mountains/day_category', locals: { forecasts: forecasts} %>
 	      <th data-field="h" data-sortable="true">High</th>
 	      <th data-field="l" data-sortable="true">Low</th>
 	      <th data-field="t" data-sortable="true">Total</th>
@@ -13,11 +10,11 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-			<% @forecasts.each do |mountain, forecast| %>
+			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='snow'>
 		      <td><%= mountain %>: Snow</td>
 		      <% forecast.each_with_index do |day, index| %>
-		      	<td><%= day.snow %> mm <%= index %> </td>
+		      	<td class=<%= 'day' + index.to_s %>><%= day.snow %> mm <%= index %> </td>
 		      <% end %>
 		      <td>High</td>
 		      <td>Low</td>

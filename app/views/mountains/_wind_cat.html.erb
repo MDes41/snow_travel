@@ -1,5 +1,5 @@
 <table data-toggle='table' data-search='true' data-show-columns='true' class="table table-hover table-bordered week1">
-	<caption class='weather'>Weather Totals</caption>
+	<caption class='wind'>Wind Totals (mi/hr)</caption>
 	  <thead>
 	    <tr>
 	      <%= render partial: 'mountains/day_category', locals: { forecasts: forecasts} %>
@@ -11,10 +11,10 @@
 	  </thead>
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
-		    <tr class='weather'>
-		      <td><%= mountain %>: Weather</td>
+		    <tr class='wind'>
+		      <td><%= mountain %>: Wind</td>
 		      <% forecast.each_with_index do |day, index| %>
-		      	<td><%= image_tag "http://openweathermap.org/img/w/#{day.weather.icon}.png" %><%= index %></td>
+		      	<td><%= day.speed %> mi/h - <%= day.wind_dir %><%= index %></td>
 	      	<% end %>
 		      <td>High</td>
 		      <td>Low</td>

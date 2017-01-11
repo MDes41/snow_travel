@@ -37,77 +37,20 @@ $(document).on('click', '.temp-details', function (e) {
     $this.parents(".panel").find(".temp-details-table").toggle();
 });
 
-// $(document).on('click', '.show-snow', function (snow) {
-//     $('tbody tr').hide();
-//     $('tbody tr:has(th.'+snow+')').show();
-// });
 
 $(document).ready(function(ready){
 	$('.panel-heading span.clickable').click();
 	$('.panel div.clickable').click();
     $('.temp-details').click();
-    $('.show-snow').click();
-    $('.table caption').hide();
-    $('.table caption.all').show();
-
-$('.show-snow').click(function() {
-    $('tbody tr').hide();
-    $('tbody tr.snow').show();
-    $('tbody tr.next-mountain').show();
-    $('.table.week2 caption').hide();
-    $('.table.week2 caption.snow').show();
-    $('.table.week1 caption').hide();
-    $('.table.week1 caption.snow').show();
+    $('.fixed-table-loading').hide();
+    $('[data-toggle="table"]').bootstrapTable();
+ 
+    $('input[type="checkbox"]').click(function() {
+        var index = $(this).attr('name');
+        $('th.' + $(this).attr('name')).toggle();
+        $('#test').attr('data-visible', false);
+        $('td.' + $(this).attr('name')).toggle();
+    });
 });
 
-$('.show-weather').click(function() {
-    $('tbody tr').hide();
-    $('tbody tr.weather').show();
-    $('tbody tr.next-mountain').show();
-    $('.table.week2 caption').hide();
-    $('.table.week2 caption.weather').show();
-    $('.table.week1 caption').hide();
-    $('.table.week1 caption.weather').show();
-});
-
-$('.show-temperature').click(function() {
-    $('tbody tr').hide();
-    $('tbody tr.temperature').show();
-    $('tbody tr.next-mountain').show();
-    $('.table.week2 caption').hide();
-    $('.table.week2 caption.temperature').show();
-    $('.table.week1 caption').hide();
-    $('.table.week1 caption.temperature').show();
-});
-
-$('.show-wind').click(function() {
-    $('tbody tr').hide();
-    $('tbody tr.wind').show();
-    $('tbody tr.next-mountain').show();
-    $('.table.week2 caption').hide();
-    $('.table.week2 caption.wind').show();
-    $('.table.week1 caption').hide();
-    $('.table.week1 caption.wind').show();
-});
-
-$('.show-all').click(function() {
-    $('tbody tr').show();
-    $('.table.week2 caption').hide();
-    $('tbody tr.next-mountain').show();
-    $('.table.week1 caption').hide();
-    $('.table.week1 caption.all').show();
-});
-
-
-
-function monthSorter(a, b) {
-    if (a.month < b.month) return -1;
-    if (a.month > b.month) return 1;
-    return 0;
-};
-// $function show(weather){
-//     $('tbody tr').hide();   
-//     $('tbody tr:has(a.'+weather+')').show();
-//     };
-});
 $(document).on('page:load', ready);
