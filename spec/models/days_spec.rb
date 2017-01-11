@@ -5,29 +5,26 @@ describe 'Days' do
 
 		before(:each) do
 				@forecasts = []
-				@raw_data = {}
-				@raw_data[:snow] = 3
-				@raw_data[:dt] = 1483988400
-				@raw_data[:temp] =  {
-											        "day": 58.06,
-											        "min": 35.15,
-											        "max": 58.06,
-											        "night": 35.15,
-											        "eve": 48.02,
-											        "morn": 58.06
-											      }
-				@raw_data[:weather] = [
-											        {
-											          "id": 800,
-											          "main": "Clear",
-											          "description": "clear sky",
-											          "icon": "01d"
-											        }
-											      ]
-				@raw_data[:deg] = 257
-		end
-
-		it 'displays the total days accross forecast days' do
+			@raw_data = {}
+			@raw_data[:snow] = 3
+			@raw_data[:dt] = 1483988400
+			@raw_data[:temp] =  {
+										        "day": 58.06,
+										        "min": 35.15,
+										        "max": 58.06,
+										        "night": 35.15,
+										        "eve": 48.02,
+										        "morn": 58.06
+										      }
+			@raw_data[:weather] = [
+										        {
+										          "id": 800,
+										          "main": "Clear",
+										          "description": "clear sky",
+										          "icon": "01d"
+										        }
+										      ]
+			@raw_data[:deg] = 257
 			@raw_data[:dt] = 1484161200
 			@forecasts << Forecast.new(@raw_data) #1
 			@raw_data[:dt] = 1484247600
@@ -60,10 +57,24 @@ describe 'Days' do
 			@forecasts << Forecast.new(@raw_data) #15
 			@raw_data[:dt] = 1484074800
 			@forecasts << Forecast.new(@raw_data) #16
+		end
 
+		it 'displays the total days accross forecast days' do
 			result = Days.display_all(@forecasts)
 
 			expect(result).to eq('Wednesday, Jan 11 2017 - Tuesday, Jan 10 2017')
+		end
+
+		it 'displays week 1 days accross forecast' do
+			result = Days.display_days_week1(@forecasts)
+
+			expect(result).to eq('Wednesday, Jan 11 2017 - Tuesday, Jan 17 2017')
+		end
+
+		it 'displays week 2 days accross forecast' do 
+			result = Days.display_days_week2(@forecasts)
+			
+			expect(result).to eq('Thursday, Jan 19 2017 - Tuesday, Jan 10 2017')
 		end
 	end
 end
