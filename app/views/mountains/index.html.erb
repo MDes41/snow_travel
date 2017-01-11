@@ -11,7 +11,7 @@
 <% case @category %>
 <% when 'snow' %>
 
-<div class='col-md-12'>
+<div class='col-md-8 col-md-offset-2'>
 	<%= render partial: 'mountains/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
 </div>
 
