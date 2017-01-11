@@ -16,9 +16,10 @@
 		      <% forecast.each_with_index do |day, index| %>
 		      	<td><%= day.speed %><small> mi/h - <%= day.wind_dir %></small><%= index %></td>
 	      	<% end %>
-		      <td>High</td>
-		      <td>Low</td>
-		      <td>Average</td>
+		      <td><%= Total.wind_high(forecast) %><small> mi/h </small></td>
+		      <td><%= Total.wind_low(forecast) %><small> mi/h </small></td>
+		      <td><%= Total.wind_dir(forecast) %></td>
+		      <td><%= Total.wind_avg(forecast) %><small> mi/h </small></td>
 		  	</tr>
 			<% end %>
 	  </tbody>

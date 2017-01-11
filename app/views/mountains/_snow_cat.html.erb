@@ -12,7 +12,7 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='snow'>
-		      <td><%= mountain %></td>
+		      <td><%= link_to mountain, mountain_path(mountain) %></td>
 		      <% forecast.each_with_index do |day, index| %>
 		      	<td class=<%= 'day' + index.to_s %>><%= day.snow %><small> mm </small> <%= index %> </td>
 		      <% end %>

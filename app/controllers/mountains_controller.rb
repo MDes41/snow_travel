@@ -6,7 +6,7 @@ class MountainsController < ApplicationController
 	end
 
 	def show
-		@mountain = Mountain.find(params[:id])
+		@mountain = Mountain.find_by(city: params[:id])
 		@forecasts = Forecast.get_forecasts(@mountain)
 		@satellite_path = WeatherUnderground.get_satalite_path(@mountain, feature: 'satellite')
 		@radar_path = WeatherUnderground.get_radar_path(@mountain, feature: 'radar')
