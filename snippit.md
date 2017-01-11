@@ -498,3 +498,16 @@ function monthSorter(a, b) {
 </form>
 
 
+
+
+<div class='col-md-12'>
+	<%= render partial: 'mountains/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+</div>
+
+<div class='col-md-6'>
+	<%= render partial: 'mountains/week1_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+</div>
+
+<div class='col-md-6'>
+	<%= render partial: 'mountains/week2_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+</div>

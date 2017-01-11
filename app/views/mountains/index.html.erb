@@ -10,14 +10,18 @@
 
 <% case @category %>
 <% when 'snow' %>
-	<%= render partial: 'mountains/snow_cat', locals: { forecasts: @forecasts} if @category = 'snow' %>
+
+<div class='col-md-12'>
+	<%= render partial: 'mountains/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+</div>
+
 <% when 'weather' %>
-	<%= render partial: 'mountains/weather_cat', locals: { forecasts: @forecasts} if @category = 'weather' %>
+	<%= render partial: 'mountains/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
 <% when 'temperature' %>
-	<%= render partial: 'mountains/temperature_cat', locals: { forecasts: @forecasts} if @category = 'temperature' %>
+	<%= render partial: 'mountains/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
 <% when 'wind' %>
-	<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts} if @category = 'wind' %>
+	<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
 <% else %>
-<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts} %>
+<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts, category: @category }%>
 <% end %>
 
