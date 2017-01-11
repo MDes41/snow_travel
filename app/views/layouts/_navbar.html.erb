@@ -19,21 +19,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mountains<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">All Mountains</a></li>
+            <li><a href="/mountains">All Mountains</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Aspen</a></li>
-            <li><a href="#">Banff</a></li>
-            <li><a href="#">Jackson Hole</a></li>
-            <li><a href="#">Mammoth</a></li>
-            <li><a href="#">Park City</a></li>
-            <li><a href="#">Silverton</a></li>
-            <li><a href="#">Snowmass</a></li>
-            <li><a href="#">Steamboat</a></li>
-            <li><a href="#">Telluride</a></li>
-            <li><a href="#">Whistler</a></li>
-            <li>
-              <a href="/mountains/1">Vail</a>
-            </li>
+            <% Mountain.all.each do |mountain| %>
+            <% html_safe = mountain.city %>
+              <li><a href=<%= '/mountains/' + html_safe.gsub(' ', '%20') %>><%= mountain.city %></a></li>
+            <% end %>
             <li role="separator" class="divider"></li>
           </ul>
         </li>

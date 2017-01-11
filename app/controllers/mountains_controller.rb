@@ -1,9 +1,15 @@
 class MountainsController < ApplicationController
 
+	def index
+		@category = params[:category]
+		@forecasts = Mountain.all_forecasts
+	end
+
 	def show
-		mountain = Mountain.find(params[:id])
-		response = Faraday.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{mountain.lat}&lon=#{mountain.lon}&cnt=16&APPID=#{ENV['OPEN_WEATHER_API']}")
-		render json: JSON.parse(response.body, symbolize_names: true)
+		@mountain = Mountain.find_by(city: params[:id])
+		@forecasts = Forecast.get_forecasts(@mountain)
+		@satellite_path = WeatherUnderground.get_satalite_path(@mountain, feature: 'satellite')
+		@radar_path = WeatherUnderground.get_radar_path(@mountain, feature: 'radar')
 	end
 
 end

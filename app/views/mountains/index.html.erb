@@ -1,0 +1,27 @@
+<h1>Mountains in Colorado</h1>
+
+<%= link_to "Show All", mountains_path, class: 'btn btn-info' %>
+<%= link_to "Compare Snow", mountains_path(category: 'snow'), class: 'btn btn-info' %>
+<%= link_to "Compare Weather", mountains_path(category: 'weather'), class: 'btn btn-info' %>
+<%= link_to "Compare Temperatures", mountains_path(category: 'temperature'), class: 'btn btn-info' %>
+<%= link_to "Compare Wind", mountains_path(category: 'wind'), class: 'btn btn-info' %>
+<br><br>
+
+
+<% case @category %>
+<% when 'snow' %>
+
+<div class='col-md-12'>
+	<%= render partial: 'mountains/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+</div>
+
+<% when 'weather' %>
+	<%= render partial: 'mountains/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+<% when 'temperature' %>
+	<%= render partial: 'mountains/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+<% when 'wind' %>
+	<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+<% else %>
+<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts, category: @category }%>
+<% end %>
+
