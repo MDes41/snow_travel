@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'Open Weather Api' do
 	context 'Api call' do
 		it 'returns the correct api based on mountain' do
-			mountain = create :mountain, city: 'Vail', state: 'CO', country: 'US', lon: '-106.374199', lat: '39.640259'
+			colorado = State.create(name: "Colorado", country: 'USA')
+			mountain = create :mountain, city: 'Vail', state_id: colorado.id, country: 'US', lon: '-106.374199', lat: '39.640259'
 			
 			response = OpenWeather.get_mountain_info(mountain)
 

@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'Forcast' do
 	context 'Api call' do
 		it 'separates the forecast into a correct object' do
-			mountain = create :mountain, city: 'Vail', state: 'CO', country: 'US', lon: '-106.374199', lat: '39.640259'
+			colorado = State.create(name: "Colorado", country: 'USA')
+			mountain = create :mountain, city: 'Vail', state_id: colorado.id, country: 'US', lon: '-106.374199', lat: '39.640259'
 			
 			forecasts = Forecast.get_forecasts(mountain)
 

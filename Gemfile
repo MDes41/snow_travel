@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'faraday'
 gem 'elasticsearch-transport'
 gem 'heroku'
+gem 'simplecov', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

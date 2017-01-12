@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Mountain, type: :model do
   it "returns all mountains forecasts" do 
-  	Mountain.create(city: 'Vail', state: 'CO', country: 'US', lon: '-106.3602599', lat: '39.6334609')
-		Mountain.create(city: 'Breckenridge', state: 'CO', country: 'US', lon: '-106.043211', lat: '39.501242')
-		Mountain.create(city: 'Copper Mountain', state: 'CO', country: 'US', lon: '-106.1561543', lat: '39.5009626')
+    colorado = State.create(name: "Colorado", country: 'USA')
+  	Mountain.create(city: 'Vail', state_id: colorado.id, country: 'US', lon: '-106.3602599', lat: '39.6334609')
+		Mountain.create(city: 'Breckenridge', state_id: colorado.id, country: 'US', lon: '-106.043211', lat: '39.501242')
+		Mountain.create(city: 'Copper Mountain', state_id: colorado.id, country: 'US', lon: '-106.1561543', lat: '39.5009626')
 
-  	forecasts = Mountain.all_forecasts
+  	forecasts = Mountain.forecasts
 
   	expect(forecasts).to be_kind_of(Hash)
   	expect(forecasts.count).to be(3)
