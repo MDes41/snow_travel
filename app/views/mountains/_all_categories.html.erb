@@ -1,9 +1,9 @@
 <% all_mtn_forecasts.each_with_index do |(mountain, mtn_forecasts), index| %>
 	<table class="table table-hover table-bordered week1">
-		<caption class='weather'>All Categories for <%= mountain %></caption>
+		<caption class='weather'>All Categories for <%= link_to mountain, mountain_path(mountain) %></caption>
 		  <thead>
 		    <tr>
-		    	<th><%= mountain %></th>
+		    	<th><%= link_to mountain, mountain_path(mountain) %></th>
 		    	<% mtn_forecasts.each_with_index do |forecast, index| %>
 						<th class=<%= 'day' + index.to_s %>><%= forecast.day %></th>
 					<% end %>
