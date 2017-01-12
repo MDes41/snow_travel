@@ -13,7 +13,7 @@
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='total-temp'>
 		    	<% mountain = Mountain.find_by(city: mountain) %>
-		      <td><%= link_to mountain, mountain_path(mountain.id) %></td>
+		      <td><%= link_to mountain.city, mountain_path(mountain.id) %></td>
 		      <td><%= mountain.state.name %></td>
 		      <td><%= Total.temp_high(forecast) %><small> F˚</small></td>
 		      <td><%= Total.temp_low(forecast) %><small> F˚</small></td>
