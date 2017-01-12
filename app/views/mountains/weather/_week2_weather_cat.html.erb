@@ -1,0 +1,22 @@
+<table data-toggle='table' data-sort-name="week2-weather" data-sort-order="desc" class="table table-hover table-bordered week2-weather">
+	<caption class='week2-weather'>Weather Totals over second 8 day period - <small>(<%= Days.display_days_week2(forecasts.first.second) %>)</small></caption>
+	  <thead>
+	    <tr>
+	      <th data-field="week2-mountain" data-sortable="true">Week two mountains <%= category %> totals</th>
+	      <th data-field="week2-mostly" data-sortable="true">Mostly <small>(w2)</small></th>
+	      <th data-field="week2-snow-days" data-sortable="true">Snow Days <small>(w2)</small></th>
+	      <th data-field="week2-sunny-days" data-sortable="true">Sunny Days <small>(w2)</small></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			<% forecasts.each do |mountain, forecast| %>
+		    <tr class='week2-weather'>
+		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+	      	<% icon = Total.mostly(forecast[8..15]) %>
+		      <td><%= image_tag "http://openweathermap.org/img/w/#{icon}.png" %></td>
+		      <td><%= Total.snow_days(forecast[8..15]) %></td>
+		      <td><%= Total.sunny_days(forecast[8..15]) %></td>
+		  	</tr>
+			<% end %>
+	  </tbody>
+</table>

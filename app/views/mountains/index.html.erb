@@ -11,29 +11,86 @@
 <% case @category %>
 <% when 'snow' %>
 
-<div class='col-md-8 col-md-offset-2'>
-	<%= render partial: 'mountains/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/snow/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
-<div class='col-md-6'>
-	<%= render partial: 'mountains/week1_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/snow/week1_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
-<div class='col-md-6'>
-	<%= render partial: 'mountains/week2_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/snow/week2_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
-<div class='col-md-12'>
-	<%= render partial: 'mountains/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/snow/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
 <% when 'weather' %>
-	<%= render partial: 'mountains/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/weather/total_weekly_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/weather/week1_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/weather/week2_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/weather/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
 <% when 'temperature' %>
-	<%= render partial: 'mountains/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/temperature/total_weekly_temp_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/temperature/week1_temp_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/temperature/week2_temp_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/temperature/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
 <% when 'wind' %>
-	<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
-<% else %>gs
-<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts, category: @category }%>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/wind/total_weekly_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/wind/week1_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/wind/week2_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/wind/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+	<% else %>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts}%>
+	</div>
+
 <% end %>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$('[data-toggle="table"]').bootstrapTable();
+	$('.fixed-table-loading').hide();
+});
+</script>

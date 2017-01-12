@@ -1,4 +1,0 @@
-<th data-field="mountain" data-sortable="true">Mountain <%= category %></th>
-<% forecasts.first.second.each_with_index do |forecast, index| %>
-<th class=<%= 'day' + index.to_s %> data-field=<%= "day" + (index + 1).to_s %> data-sortable="true"><%= forecast.day %></th>
-<% end %>

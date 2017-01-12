@@ -1,15 +1,15 @@
-<table data-toggle='table' data-sort-name="snow-all" data-sort-order="asc" data-search='true' data-show-columns='true' class="table table-hover table-bordered all-snow">
+<table data-toggle='table' data-sort-name="all-snow" data-sort-order="desc" data-search='true' data-show-columns='true' class="table table-hover table-bordered all-snow">
 	<caption class='all-snow'>Snow Totals (mm/3h)</caption>
 	  <thead>
 	    <tr>
-	      <th data-field="mountain" data-sortable="true">Mountain <%= category %></th>
+	      <th data-field="snow-mountain" data-sortable="true">Mountain <%= category %></th>
 				<% forecasts.first.second.each_with_index do |forecast, index| %>
-					<th data-field=<%= "day" + (index).to_s %> data-sortable="true"><%= forecast.day %></th>
+					<th data-field=<%= "day" + (index).to_s %> data-sortable="true" data-sorter="totalSorter"><%= forecast.day %></th>
 				<% end %>
-	      <th data-field="high" data-sortable="true">High</th>
-	      <th data-field="low" data-sortable="true">Low</th>
-	      <th data-field="total" data-sortable="true">Total</th>
-	      <th data-field="average" data-sortable="true">Average</th>
+	      <th data-field="high" data-sortable="true" data-sorter="totalSorter">High</th>
+	      <th data-field="low" data-sortable="true" data-sorter="totalSorter">Low</th>
+	      <th data-field="total" data-sortable="true" data-sorter="totalSorter">Total</th>
+	      <th data-field="average" data-sortable="true" data-sorter="totalSorter">Average</th>
 	    </tr>
 	  </thead>
 	  <tbody>
