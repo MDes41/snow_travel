@@ -1,9 +1,9 @@
 <% all_mtn_forecasts.each_with_index do |(mountain, mtn_forecasts), index| %>
 	<table class="table table-hover table-bordered week1">
-		<caption class='weather'>All Categories for <%= mountain %><%= index %></caption>
+		<caption class='weather'>All Categories for <%= link_to mountain, mountain_path(mountain) %></caption>
 		  <thead>
 		    <tr>
-		    	<th><%= mountain %></th>
+		    	<th><%= link_to mountain, mountain_path(mountain) %></th>
 		    	<% mtn_forecasts.each_with_index do |forecast, index| %>
 						<th class=<%= 'day' + index.to_s %>><%= forecast.day %></th>
 					<% end %>
@@ -13,7 +13,7 @@
 			    <tr class='snow'>
 			      <td>Snow</td>
 			      <% mtn_forecasts.each_with_index do |day, index| %>
-			      	<td class=<%= 'day' + index.to_s %>><%= day.snow %> mm <%= index %> </td>
+			      	<td class=<%= 'day' + index.to_s %>><%= day.snow %> <small>mm</small></td>
 			      <% end %>
 			    </tr>
 			    <tr class='weather'>
@@ -25,13 +25,13 @@
 			  	<tr class='temperature'>
 			      <td>Temperature</td>
 			      <% mtn_forecasts.each_with_index do |day, index| %>
-			      	<td class=<%= 'day' + index.to_s %>><p><%= day.temp.day_temp %> F˚ <%= index %></p></td>
+			      	<td class=<%= 'day' + index.to_s %>><p><%= day.temp.day_temp %> <small>F˚</small></p></td>
 		      	<% end %>
 			  	</tr>
 			  	 <tr class='wind'>
 			      <td>Wind</td>
 			      <% mtn_forecasts.each_with_index do |day, index| %>
-			      	<td class=<%= 'day' + index.to_s %>><%= day.speed %> mi/h - <%= day.wind_dir %><%= index %></td>
+			      	<td class=<%= 'day' + index.to_s %>><%= day.speed %> <small>mi/h <%= day.wind_dir %></small></td>
 		      	<% end %>
 			  	</tr>
 		  </tbody>

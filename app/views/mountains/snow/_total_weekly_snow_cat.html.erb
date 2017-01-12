@@ -1,12 +1,12 @@
-<table data-toggle='table' data-sort-name="total-snow" data-sort-order="asc" class="table table-hover table-bordered total-snow">
+<table data-toggle='table' data-sort-name="total-snow" data-sort-order="desc" class="table table-hover table-bordered total-snow">
 	<caption class='total-snow'>Snow Totals over 16 day period (mm/3h) - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></caption>
 	  <thead>
 	    <tr>
 	    	<th data-field="total-mountain" data-sortable="true">Total Mountain <%= category %></th>
-	      <th data-field="total-high" data-sortable="true">High <small>(w1,w2)</small></th>
-	      <th data-field="total-low" data-sortable="true">Low <small>(w1,w2)</small></th>
-	      <th data-field="total-total" data-sortable="true">Total <small>(w1,w2)</small></th>
-	      <th data-field="total-average" data-sortable="true">Average <small>(w1,w2)</small></th>
+	      <th data-field="total-high" data-sortable="true" data-sorter="totalSorter">High <small>(w1,w2)</small></th>
+	      <th data-field="total-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w1,w2)</small></th>
+	      <th data-field="total-total" data-sortable="true" data-sorter="totalSorter">Total <small>(w1,w2)</small></th>
+	      <th data-field="total-average" data-sortable="true" data-sorter="totalSorter">Average <small>(w1,w2)</small></th>
 	    </tr>
 	  </thead>
 	  <tbody>
