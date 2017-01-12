@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 	delete "/logout", to: "sessions#destroy"
 	get "/dashboard", to: "dashboard#index"
 	resources :mountains, only: [:show, :index]
+	resources :states, only: [:show]
 end

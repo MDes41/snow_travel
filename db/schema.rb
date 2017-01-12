@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107223223) do
+ActiveRecord::Schema.define(version: 20170112064137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "mountains", force: :cascade do |t|
     t.string   "city"
-    t.string   "state"
     t.string   "country"
     t.string   "lon"
     t.string   "lat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "state_id"
+    t.index ["state_id"], name: "index_mountains_on_state_id", using: :btree
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,4 +45,5 @@ ActiveRecord::Schema.define(version: 20170107223223) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "mountains", "states"
 end

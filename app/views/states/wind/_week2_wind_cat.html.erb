@@ -3,7 +3,6 @@
 	  <thead>
 	    <tr>
 	      <th data-field="week2-mountain" data-sortable="true">Week two mountains <%= category %> totals</th>
-	      <th data-field="total-state" data-sortable="true">State</th>
 	      <th data-field="week2-high" data-sortable="true" data-sorter="totalSorter">High <small>(w2)</small></th>
 	      <th data-field="week2-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w2)</small></th>
 	      <th data-field="week2-dir" data-sortable="true">Direction <small>(w2)</small></th>
@@ -13,9 +12,7 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='week2-wind'>
-		    	<% mountain = Mountain.find_by(city: mountain) %>
-		      <td><%= link_to mountain.city, mountain_path(mountain.id) %></td>
-		      <td><%= mountain.state.name %></td>
+		      <td><%= link_to mountain, mountain_path(Mountain.find_by(city: mountain).id) %></td>
 		      <td><%= Total.wind_high(forecast) %><small> mi/h </small></td>
 		      <td><%= Total.wind_low(forecast) %><small> mi/h </small></td>
 		      <td><%= Total.wind_dir(forecast) %></td>
