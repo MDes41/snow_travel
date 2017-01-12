@@ -19,7 +19,7 @@
 			    <tr class='weather'>
 			      <td>Weather</td>
 			      <% mtn_forecasts.each_with_index do |day, index| %>
-			      	<td class=<%= 'day' + index.to_s %>><%= image_tag "http://openweathermap.org/img/w/#{day.weather.icon}.png" %><%= index %></td>
+			      	<td class=<%= 'day' + index.to_s %>><%= image_tag "http://openweathermap.org/img/w/#{day.weather.icon}.png" %></td>
 		      	<% end %>
 			  	</tr>
 			  	<tr class='temperature'>

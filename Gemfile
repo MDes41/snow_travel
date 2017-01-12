@@ -36,6 +36,7 @@ gem "faker"
 gem 'bootstrap-sass'
 gem 'faraday'
 gem 'elasticsearch-transport'
+gem 'heroku'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
