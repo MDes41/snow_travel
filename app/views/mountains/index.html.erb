@@ -1,18 +1,11 @@
 
-<div class='text-center'>
-<%= link_to "Show All", mountains_path, class: 'btn btn-info' %>
-<%= link_to "Compare Snow", mountains_path(category: 'snow'), class: 'btn btn-info' %>
-<%= link_to "Compare Weather", mountains_path(category: 'weather'), class: 'btn btn-info' %>
-<%= link_to "Compare Temperatures", mountains_path(category: 'temperature'), class: 'btn btn-info' %>
-<%= link_to "Compare Wind", mountains_path(category: 'wind'), class: 'btn btn-info' %>
-</div>
+<%= render partial: 'shared/sort_buttons' %>
 
 	<% case @category %>
 	<% when 'snow' %>
 		<div class='page-header text-center'>
 			<h1>Snow Totals for All Mountains in Every State</h1><h1><small>(Use Search or Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
 		</div>
-
 
 		<div class='col-md-8 col-md-offset-2'>
 			<%= render partial: 'mountains/snow/total_weekly_snow_cat', locals: { forecasts: @all_forecasts, category: @category } %>

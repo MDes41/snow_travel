@@ -1,0 +1,23 @@
+<table data-toggle='table' data-sort-name="week2-snow" data-sort-order="desc" class="table table-hover table-bordered week2-snow">
+	<caption class='week2-snow'><h3>Snow Totals over second 8 day period (mm/3h) - <small>(<%= Days.display_days_week2(forecasts.first.second) %>)</small></h3></caption>
+	  <thead>
+	    <tr>
+	    	<th data-field="week2-mountain" data-sortable="true">Week two mountains <%= category %> totals</th>
+	      <th data-field="week2-high" data-sortable="true" data-sorter="totalSorter">High <small>(w2)</small></th>
+	      <th data-field="week2-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w2)</small></th>
+	      <th data-field="week2-total" data-sortable="true" data-sorter="totalSorter">Total <small>(w2)</small></th>
+	      <th data-field="week2-average" data-sortable="true" data-sorter="totalSorter">Average <small>(w2)</small></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			<% forecasts.each do |mountain, forecast| %>
+		    <tr class='week2-snow'>
+		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= Total.max_snow(forecast[8..15]) %><small> mm </small></td>
+		      <td><%= Total.min_snow(forecast[8..15]) %><small> mm </small></td>
+		      <td><%= Total.total_snow(forecast[8..15]) %><small> mm </small></td>
+		      <td><%= Total.average_snow(forecast[8..15]) %><small> mm </small></td>
+		    </tr>
+			<% end %>
+	  </tbody>
+</table>
