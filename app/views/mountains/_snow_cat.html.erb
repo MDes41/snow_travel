@@ -2,7 +2,7 @@
 	<caption class='all-snow'>Snow Totals (mm/3h)</caption>
 	  <thead>
 	    <tr>
-	      <th data-field="mountain" data-sortable="true">Mountain <%= category %></th>
+	      <th data-field="snow-mountain" data-sortable="true">Mountain <%= category %></th>
 				<% forecasts.first.second.each_with_index do |forecast, index| %>
 					<th data-field=<%= "day" + (index).to_s %> data-sortable="true" data-sorter="totalSorter"><%= forecast.day %></th>
 				<% end %>

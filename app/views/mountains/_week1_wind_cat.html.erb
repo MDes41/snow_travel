@@ -1,0 +1,23 @@
+<table data-toggle='table' data-sort-name='week1-wind' data-sort-order='desc' class="table table-hover table-bordered week1-wind">
+	<caption class='week1-wind'>Wind Totals over first 8 day period (mi/hr) - <small>(<%= Days.display_days_week1(forecasts.first.second) %>)</small></caption>
+	  <thead>
+	    <tr>
+	      <th data-field="week1-mountain" data-sortable="true">Week one mountains <%= category %> totals</th>
+	      <th data-field="week1-high" data-sortable="true" data-sorter="totalSorter">High <small>(w1)</small></th>
+	      <th data-field="week1-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w1)</small></th>
+	      <th data-field="week1-dir" data-sortable="true">Direction <small>(w1)</small></th>
+	      <th data-field="week1-avg" data-sortable="true" data-sorter="totalSorter">Average <small>(w1)</small></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			<% forecasts.each do |mountain, forecast| %>
+		    <tr class='week1-wind'>
+		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= Total.wind_high(forecast) %><small> mi/h </small></td>
+		      <td><%= Total.wind_low(forecast) %><small> mi/h </small></td>
+		      <td><%= Total.wind_dir(forecast) %></td>
+		      <td><%= Total.wind_avg(forecast) %><small> mi/h </small></td>
+		  	</tr>
+			<% end %>
+	  </tbody>
+</table>

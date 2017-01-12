@@ -64,9 +64,28 @@
 	</div>
 
 <% when 'wind' %>
-	<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
-<% else %>gs
-<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts, category: @category }%>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/total_weekly_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/week1_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/week2_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+	<% else %>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts}%>
+	</div>
+
 <% end %>
 
 <script type="text/javascript">
