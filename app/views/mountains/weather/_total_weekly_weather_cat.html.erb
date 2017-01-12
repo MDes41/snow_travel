@@ -1,8 +1,9 @@
-<table data-toggle='table' data-sort-name="total-weather" data-sort-order="desc" class="table table-hover table-bordered total-weather">
-	<caption class='total-weather'>Weather Totals over 16 day period - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></caption>
+<table data-toggle='table' data-sort-name="total-weather" data-sort-order="desc" data-search='true' class="table table-hover table-bordered total-weather">
+	<caption class='total-weather'><h3>Weather Totals over 16 day period - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></h3></caption>
 	  <thead>
 	    <tr>
 	      <th data-field="total-mountain" data-sortable="true">Total Mountain <%= category %></th>
+	      <th data-field="total-state" data-sortable="true">State</th>
 	      <th data-field="total-mostly" data-sortable="true">Mostly <small>(w1,w2)</small></th>
 	      <th data-field="total-snow-days" data-sortable="true">Snow Days <small>(w1,w2)</small></th>
 	      <th data-field="total-sunny-days" data-sortable="true">Sunny Days <small>(w1,w2)</small></th>
@@ -12,6 +13,7 @@
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='total-weather'>
 		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= Mountain.find_by(city: mountain).state.name %></td>
 	      	<% icon = Total.mostly(forecast) %>
 		      <td><%= image_tag "http://openweathermap.org/img/w/#{icon}.png" %></td>
 		      <td><%= Total.snow_days(forecast) %></td>

@@ -1,8 +1,9 @@
-<table data-toggle='table' data-sort-name="total-snow" data-sort-order="desc" class="table table-hover table-bordered total-snow">
-	<caption class='total-snow'>Snow Totals over 16 day period (mm/3h) - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></caption>
+<table data-toggle='table' data-sort-name="total-snow" data-sort-order="desc" data-search='true' class="table table-hover table-bordered total-snow">
+	<caption class='total-snow'><h3>Snow Totals over 16 day period (mm/3h) - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></h3></caption>
 	  <thead>
 	    <tr>
 	    	<th data-field="total-mountain" data-sortable="true">Total Mountain <%= category %></th>
+	    	<th data-field="total-state" data-sortable="true">State</th>
 	      <th data-field="total-high" data-sortable="true" data-sorter="totalSorter">High <small>(w1,w2)</small></th>
 	      <th data-field="total-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w1,w2)</small></th>
 	      <th data-field="total-total" data-sortable="true" data-sorter="totalSorter">Total <small>(w1,w2)</small></th>
@@ -13,6 +14,7 @@
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='total-snow'>
 		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= Mountain.find_by(city: mountain).state.name %></td>
 		      <td><%= Total.max_snow(forecast) %><small> mm </small></td>
 		      <td><%= Total.min_snow(forecast) %><small> mm </small></td>
 		      <td><%= Total.total_snow(forecast) %><small> mm </small></td>

@@ -1,8 +1,9 @@
-<table data-toggle='table' data-sort-name='total-wind' data-sort-order='desc' class="table table-hover table-bordered total-wind">
-	<caption class='total-wind'>Wind Totals over 16 day period (mi/hr) - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></caption>
+<table data-toggle='table' data-sort-name='total-wind' data-sort-order='desc' data-search='true' class="table table-hover table-bordered total-wind">
+	<caption class='total-wind'><h3>Wind Totals over 16 day period (mi/hr) - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></h3></caption>
 	  <thead>
 	    <tr>
 	      <th data-field="total-mountain" data-sortable="true">Mountain <%= category %></th>
+	      <th data-field="total-state" data-sortable="true">State</th>
 	      <th data-field="total-high" data-sortable="true" data-sorter="totalSorter">High <small>(w1,w2)</small></th>
 	      <th data-field="total-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w1,w2)</small></th>
 	      <th data-field="total-dir" data-sortable="true">Direction <small>(w1,w2)</small></th>
@@ -13,6 +14,7 @@
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='total-wind'>
 		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= Mountain.find_by(city: mountain).state.name %></td>
 		      <td><%= Total.wind_high(forecast) %><small> mi/h </small></td>
 		      <td><%= Total.wind_low(forecast) %><small> mi/h </small></td>
 		      <td><%= Total.wind_dir(forecast) %></td>

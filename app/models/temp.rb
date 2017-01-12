@@ -1,4 +1,4 @@
-class Temp
+class Temp 
 	attr_reader :day_temp, :min_day_temp, :max_day_temp, :night_temp, :evening_temp, :morn_temp
 
 	def initialize(temp)
