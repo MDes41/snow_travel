@@ -1,0 +1,112 @@
+
+<div class='text-center'>
+	<%= link_to "Show All", state_path, class: 'btn btn-info' %>
+	<%= link_to "Compare Snow", state_path(category: 'snow'), class: 'btn btn-info' %>
+	<%= link_to "Compare Weather", state_path(category: 'weather'), class: 'btn btn-info' %>
+	<%= link_to "Compare Temperatures", state_path(category: 'temperature'), class: 'btn btn-info' %>
+	<%= link_to "Compare Wind", state_path(category: 'wind'), class: 'btn btn-info' %>
+</div>
+
+
+<% case @category %>
+<% when 'snow' %>
+	<div class='page-header text-center'>
+		<h1>Snow Totals for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+	</div>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'states/snow/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/snow/week1_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/snow/week2_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'states/snow/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+<% when 'weather' %>
+	<div class='page-header text-center'>
+		<h1>Weather forecasts for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+	</div>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'states/weather/total_weekly_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/weather/week1_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/weather/week2_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'states/weather/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+<% when 'temperature' %>
+
+	<div class='page-header text-center'>
+		<h1>Temperatures for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+	</div>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'states/temperature/total_weekly_temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/temperature/week1_temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/temperature/week2_temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'states/temperature/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+<% when 'wind' %>
+	<div class='page-header text-center'>
+		<h1>Wind for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+	</div>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'states/wind/total_weekly_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/wind/week1_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'states/wind/week2_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'states/wind/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+<% else %>
+	<div class='page-header text-center'>
+		<h1>All Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'states/all_categories', locals: { all_mtn_forecasts: @forecasts}%>
+	</div>
+
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('[data-toggle="table"]').bootstrapTable();
+	$('.fixed-table-loading').hide();
+});
+</script>

@@ -1,9 +1,8 @@
-<table data-toggle='table' data-sort-name="week1-temp" data-sort-order="desc" data-search='true' class="table table-hover table-bordered week1-temp">
+<table data-toggle='table' data-sort-name="week1-temp" data-sort-order="desc" class="table table-hover table-bordered week1-temp">
 	<caption class='week1-temp'><h3>Temperature Totals over first 8 day period (F˚) - <small>(<%= Days.display_days_week1(forecasts.first.second) %>)</small></h3></caption>
 	  <thead>
 	    <tr>
 	    	<th data-field="total-mountain" data-sortable="true">Week one mountains <%= category %> totals</th>
-	    	<th data-field="total-state" data-sortable="true">State</th>
 	      <th data-field="temp-high" data-sortable="true" data-sorter="totalSorter">High <small>(w1)</small></th>
 	      <th data-field="temp-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w1)</small></th>
 	      <th data-field="temp-avg" data-sortable="true" data-sorter="totalSorter">Average <small>(w1)</small></th>
@@ -12,9 +11,7 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='week1-temp'>
-		    	<% mountain = Mountain.find_by(city: mountain) %>
-		      <td><%= link_to mountain.city, mountain_path(mountain.id) %></td>
-		      <td><%= mountain.state.name %></td>
+		      <td><%= link_to mountain, mountain_path(Mountain.find_by(city: mountain).id) %></td>
 		      <td><%= Total.temp_high(forecast) %><small> F˚</small></td>
 		      <td><%= Total.temp_low(forecast) %><small> F˚</small></td>
 		      <td><%= Total.temp_avg(forecast) %><small> F˚</small></td>

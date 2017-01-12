@@ -1,9 +1,8 @@
-<table data-toggle='table' data-sort-name="week1-weather" data-sort-order="desc" data-search='true' class="table table-hover table-bordered week1-weather">
+<table data-toggle='table' data-sort-name="week1-weather" data-sort-order="desc" class="table table-hover table-bordered week1-weather">
 	<caption class='week1-weather'><h3>Weather Totals over first 8 day period - <small>(<%= Days.display_days_week1(forecasts.first.second) %>)</small></h3></caption>
 	  <thead>
 	    <tr>
 	      <th data-field="week1-mountain" data-sortable="true">Week one mountains <%= category %> totals</th>
-	      <th data-field="total-state" data-sortable="true">State</th>
 	      <th data-field="week1-mostly" data-sortable="true">Mostly <small>(w1)</small></th>
 	      <th data-field="week1-snow-days" data-sortable="true">Snow Days <small>(w1)</small></th>
 	      <th data-field="week1-sunny-days" data-sortable="true">Sunny Days <small>(w1)</small></th>
@@ -12,9 +11,7 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='week1-weather'>
-		    	<% mountain = Mountain.find_by(city: mountain) %>
-		      <td><%= link_to mountain.city, mountain_path(mountain.id) %></td>
-		      <td><%= mountain.state.name %></td>
+		      <td><%= link_to mountain, mountain_path(Mountain.find_by(city: mountain).id) %></td>
 	      	<% icon = Total.mostly(forecast[0..7]) %>
 		      <td><%= image_tag "http://openweathermap.org/img/w/#{icon}.png" %></td>
 		      <td><%= Total.snow_days(forecast[0..7]) %></td>
