@@ -1,6 +1,3 @@
-<div class='page-header'>
-	<h1>Mountains in <%= @state.name %>, <small><%= @state.country %></small></h1>
-</div>
 
 <div class='text-center'>
 	<%= link_to "Show All", state_path, class: 'btn btn-info' %>
@@ -14,7 +11,7 @@
 <% case @category %>
 <% when 'snow' %>
 	<div class='page-header text-center'>
-		<h1>Snow Totals <small>(Use Search or Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+		<h1>Snow Totals for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
 	</div>
 
 	<div class='col-md-8 col-md-offset-2'>
@@ -35,69 +32,71 @@
 
 <% when 'weather' %>
 	<div class='page-header text-center'>
-		<h1>Weather Forecasts for All Mountains in Svery State</h1><h1><small>(Use Search or Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+		<h1>Weather forecasts for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
 	</div>
 
 	<div class='col-md-8 col-md-offset-2'>
-		<%= render partial: 'mountains/weather/total_weekly_weather_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/weather/total_weekly_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-6'>
-		<%= render partial: 'mountains/weather/week1_weather_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/weather/week1_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-6'>
-		<%= render partial: 'mountains/weather/week2_weather_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/weather/week2_weather_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-12'>
-		<%= render partial: 'mountains/weather/weather_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/weather/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 <% when 'temperature' %>
 
 	<div class='page-header text-center'>
-		<h1>Temperatures for All Mountains in Every State</h1><h1> <small>(Use Search or Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+		<h1>Temperatures for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
 	</div>
 
 	<div class='col-md-8 col-md-offset-2'>
-		<%= render partial: 'mountains/temperature/total_weekly_temp_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/temperature/total_weekly_temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-6'>
-		<%= render partial: 'mountains/temperature/week1_temp_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/temperature/week1_temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-6'>
-		<%= render partial: 'mountains/temperature/week2_temp_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/temperature/week2_temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-12'>
-		<%= render partial: 'mountains/temperature/temperature_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/temperature/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 <% when 'wind' %>
 	<div class='page-header text-center'>
-		<h1>Wind for All Mountains in Every State</h1><h1><small>(Use Search or Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+		<h1>Wind for Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
 	</div>
-
 
 	<div class='col-md-8 col-md-offset-2'>
-		<%= render partial: 'mountains/wind/total_weekly_wind_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/wind/total_weekly_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-6'>
-		<%= render partial: 'mountains/wind/week1_wind_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/wind/week1_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-6'>
-		<%= render partial: 'mountains/wind/week2_wind_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/wind/week2_wind_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 
 	<div class='col-md-12'>
-		<%= render partial: 'mountains/wind/wind_cat', locals: { forecasts: @all_forecasts, category: @category } %>
+		<%= render partial: 'states/wind/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
 	</div>
 <% else %>
+	<div class='page-header text-center'>
+		<h1>All Mountains in <%= @state.name %>, <small><%= @state.country %> (Click on heading title to sort)</small></h1><h4><small>Scroll down for more totals</small></h4>
+	</div>
 
 	<div class='col-md-12'>
 		<%= render partial: 'states/all_categories', locals: { all_mtn_forecasts: @forecasts}%>

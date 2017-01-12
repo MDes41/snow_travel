@@ -1,0 +1,21 @@
+<table data-toggle='table' data-sort-name="total-temp" data-sort-order="desc" class="table table-hover table-bordered total-temp">
+	<caption class='total-temp'><h3>Temperature Totals over 16 day period (F˚) - <small>(<%= Days.display_all(forecasts.first.second) %>)</small></h3></caption>
+	  <thead>
+	    <tr>
+	    	<th data-field="total-mountain" data-sortable="true">Total Mountain <%= category %></th>
+	      <th data-field="temp-high" data-sortable="true" data-sorter="totalSorter">High <small>(w1,w2)</small></th>
+	      <th data-field="temp-low" data-sortable="true" data-sorter="totalSorter">Low <small>(w1,w2)</small></th>
+	      <th data-field="temp-avg" data-sortable="true" data-sorter="totalSorter">Average <small>(w1,w2)</small></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			<% forecasts.each do |mountain, forecast| %>
+		    <tr class='total-temp'>
+		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= Total.temp_high(forecast) %><small> F˚</small></td>
+		      <td><%= Total.temp_low(forecast) %><small> F˚</small></td>
+		      <td><%= Total.temp_avg(forecast) %><small> F˚</small></td>
+		    </tr>
+			<% end %>
+	  </tbody>
+</table>
