@@ -11,29 +11,51 @@
 <% case @category %>
 <% when 'snow' %>
 
-<div class='col-md-8 col-md-offset-2'>
-	<%= render partial: 'mountains/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/total_weekly_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
-<div class='col-md-6'>
-	<%= render partial: 'mountains/week1_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/week1_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
-<div class='col-md-6'>
-	<%= render partial: 'mountains/week2_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/week2_snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
-<div class='col-md-12'>
-	<%= render partial: 'mountains/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
-</div>
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/snow_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
 
 <% when 'weather' %>
 	<%= render partial: 'mountains/weather_cat', locals: { forecasts: @forecasts, category: @category } %>
 <% when 'temperature' %>
-	<%= render partial: 'mountains/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+
+	<div class='col-md-8 col-md-offset-2'>
+		<%= render partial: 'mountains/total_weekly_temp_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/week1_temp_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-6'>
+		<%= render partial: 'mountains/week2_temp_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+
+	<div class='col-md-12'>
+		<%= render partial: 'mountains/temperature_cat', locals: { forecasts: @forecasts, category: @category } %>
+	</div>
+	
 <% when 'wind' %>
 	<%= render partial: 'mountains/wind_cat', locals: { forecasts: @forecasts, category: @category } %>
 <% else %>gs
 <%= render partial: 'mountains/all_categories', locals: { all_mtn_forecasts: @forecasts, category: @category }%>
 <% end %>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$('[data-toggle="table"]').bootstrapTable();
+	$('.fixed-table-loading').hide();
+});
+</script>
