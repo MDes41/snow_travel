@@ -14,20 +14,30 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Best Mountain <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Closest Mountain</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mountains<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/mountains">All Mountains</a></li>
             <li role="separator" class="divider"></li>
             <% Mountain.all.each do |mountain| %>
-            <% html_safe = mountain.city %>
-              <li><a href=<%= '/mountains/' + html_safe.gsub(' ', '%20') %>><%= mountain.city %></a></li>
+              <li><a href=<%= "/mountains/#{mountain.id}" %>><%= mountain.city %></a></li>
             <% end %>
             <li role="separator" class="divider"></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">States<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/mountains">All States</a></li>
+            <li role="separator" class="divider"></li>
+            <% State.all.each do |state| %>
+            <% html_safe = state.id %>
+              <li><a href=<%= "/states/#{state.id}" %>><%= state.name %></a></li>
+            <% end %>
+            <li role="separator" class="divider"></li>
+          </ul>
+        </li>
+
       </ul>
      
       <ul class="nav navbar-nav navbar-right">

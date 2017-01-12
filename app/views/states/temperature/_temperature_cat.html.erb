@@ -14,7 +14,7 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='all-temp'>
-		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= link_to mountain, mountain_path(Mountain.find_by(city: mountain).id) %></td>
 		      <% forecast.each_with_index do |day, index| %>
 		      	<td><%= day.temp.day_temp %><small> F˚</small></td>
 	      	<% end %>

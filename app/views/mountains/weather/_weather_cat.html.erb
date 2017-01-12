@@ -15,8 +15,9 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='all-weather'>
-		      <td><%= link_to mountain, mountain_path(mountain) %></td>
-		      <td><%= Mountain.find_by(city: mountain).state.name %></td>
+		    	<% mountain = Mountain.find_by(city: mountain) %>
+		      <td><%= link_to mountain, mountain_path(mountain.id) %></td>
+		      <td><%= mountain.state.name %></td>
 		      <% forecast.each_with_index do |day, index| %>
 		      	<td><%= image_tag "http://openweathermap.org/img/w/#{day.weather.icon}.png" %></td>
 	      	<% end %>

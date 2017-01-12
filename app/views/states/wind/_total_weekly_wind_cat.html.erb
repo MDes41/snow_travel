@@ -12,7 +12,7 @@
 	  <tbody>
 			<% forecasts.each do |mountain, forecast| %>
 		    <tr class='total-wind'>
-		      <td><%= link_to mountain, mountain_path(mountain) %></td>
+		      <td><%= link_to mountain, mountain_path(Mountain.find_by(city: mountain).id) %></td>
 		      <td><%= Total.wind_high(forecast) %><small> mi/h </small></td>
 		      <td><%= Total.wind_low(forecast) %><small> mi/h </small></td>
 		      <td><%= Total.wind_dir(forecast) %></td>
