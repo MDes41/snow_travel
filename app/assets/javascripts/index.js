@@ -48,6 +48,5 @@ $(document).ready(function(ready){
 	$('.panel-heading span.clickable').click();
 	$('.panel div.clickable').click();
     $('.temp-details').click();
- 
 });
 
