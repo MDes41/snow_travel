@@ -5,4 +5,5 @@ class StatesController < ApplicationController
 		@state = State.find(params[:id])
 		@forecasts = @state.mountains.forecasts
 	end
+	
 end
