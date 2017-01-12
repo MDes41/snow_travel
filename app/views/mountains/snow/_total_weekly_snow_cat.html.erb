@@ -11,9 +11,9 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-			<% forecasts.each do |mountain, forecast| %>
+			<% forecasts.each do |mountain1, forecast| %>
 		    <tr class='total-snow'>
-		      <td><%= link_to mountain.city, mountain_path(mountain) %></td>
+		      <td><%= link_to mountain.city, mountain_path(mountain1) %></td>
 		      <% state = Mountain.find_by(city: mountain).state %>
 		      <td><%= link_to state.name, state_path(state)%></td>
 		      <td><%= Total.max_snow(forecast) %><small> mm </small></td>
