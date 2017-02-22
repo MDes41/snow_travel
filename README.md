@@ -6,7 +6,7 @@ Snow Travel is a project built with Ruby on Rails with a postgresl database and 
 
 http://snow-travel.herokuapp.com 
 
-![image of main page(upper)](./all_mountains_main_page.png?raw=true "All Mountains Main Page")
+![image of main page(upper)](https://raw.github.com/MDes41/snow_travel/master/all_mountains_main_page.png?raw=true "All Mountains Main Page")
 
 ## Authors
 
